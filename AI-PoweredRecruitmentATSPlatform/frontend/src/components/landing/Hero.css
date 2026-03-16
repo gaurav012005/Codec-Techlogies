@@ -1,0 +1,408 @@
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 0 60px;
+    overflow: hidden;
+}
+
+/* ---- Animated Background ---- */
+.hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.hero__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    animation: float 8s ease-in-out infinite;
+}
+
+.hero__orb--1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(108, 92, 231, 0.3), transparent 70%);
+    top: -10%;
+    left: -5%;
+    transform: translate(var(--mouse-x, 0), var(--mouse-y, 0));
+    transition: transform 0.8s ease-out;
+}
+
+.hero__orb--2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 206, 201, 0.25), transparent 70%);
+    top: 20%;
+    right: -10%;
+    animation-delay: 2s;
+    transform: translate(calc(var(--mouse-x, 0) * -0.5), calc(var(--mouse-y, 0) * -0.5));
+    transition: transform 0.8s ease-out;
+}
+
+.hero__orb--3 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(253, 121, 168, 0.2), transparent 70%);
+    bottom: 10%;
+    left: 30%;
+    animation-delay: 4s;
+}
+
+.hero__particles {
+    position: absolute;
+    inset: 0;
+}
+
+.hero__particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(108, 92, 231, 0.5);
+    border-radius: 50%;
+    animation: float infinite ease-in-out;
+}
+
+.hero__particle:nth-child(even) {
+    background: rgba(0, 206, 201, 0.4);
+    width: 2px;
+    height: 2px;
+}
+
+/* ---- Content ---- */
+.hero__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: rgba(108, 92, 231, 0.12);
+    border: 1px solid rgba(108, 92, 231, 0.25);
+    border-radius: var(--radius-full);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-light);
+    margin-bottom: 32px;
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.hero__badge-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--secondary);
+    border-radius: 50%;
+    animation: pulse-glow 2s infinite;
+    box-shadow: 0 0 10px rgba(0, 206, 201, 0.5);
+}
+
+.hero__title {
+    font-size: clamp(44px, 6vw, 76px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.hero__title .gradient-text {
+    background: linear-gradient(135deg, #6c5ce7 0%, #00cec9 40%, #fd79a8 80%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 4s ease infinite;
+}
+
+.hero__subtitle {
+    font-size: clamp(16px, 1.3vw, 20px);
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.hero__ctas {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 60px;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.hero__cta-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero__cta-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.hero__cta-primary:hover::before {
+    transform: translateX(100%);
+}
+
+/* ---- Dashboard Mockup ---- */
+.hero__mockup {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 60px;
+    perspective: 1000px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero__mockup-glow {
+    position: absolute;
+    bottom: -20%;
+    left: 10%;
+    right: 10%;
+    height: 60%;
+    background: radial-gradient(ellipse, rgba(108, 92, 231, 0.2), transparent 70%);
+    filter: blur(40px);
+    z-index: 0;
+}
+
+.hero__mockup-window {
+    position: relative;
+    z-index: 1;
+    background: rgba(18, 18, 26, 0.9);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    transform: rotateX(4deg) rotateY(-1deg);
+    transition: transform 0.5s var(--ease-smooth);
+}
+
+.hero__mockup-window:hover {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(10px);
+}
+
+.hero__mockup-topbar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+    background: rgba(26, 26, 46, 0.8);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.hero__mockup-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.hero__mockup-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.hero__mockup-dots span:nth-child(1) {
+    background: #e17055;
+}
+
+.hero__mockup-dots span:nth-child(2) {
+    background: #fdcb6e;
+}
+
+.hero__mockup-dots span:nth-child(3) {
+    background: #00b894;
+}
+
+.hero__mockup-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 4px 12px;
+    border-radius: 6px;
+    flex: 1;
+}
+
+.hero__mockup-body {
+    display: flex;
+    min-height: 280px;
+}
+
+.hero__mockup-sidebar {
+    width: 50px;
+    background: rgba(26, 26, 46, 0.6);
+    border-right: 1px solid var(--border-subtle);
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.hero__mockup-sidebar-item {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+}
+
+.hero__mockup-sidebar-item.active {
+    background: var(--primary);
+}
+
+.hero__mockup-main {
+    flex: 1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.hero__mockup-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.hero__mockup-stat-card {
+    background: rgba(26, 26, 46, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 12px;
+    border-top: 2px solid var(--card-color, #6c5ce7);
+}
+
+.hero__mockup-stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.hero__mockup-stat-label {
+    font-size: 10px;
+    color: var(--text-tertiary);
+    margin-top: 4px;
+}
+
+.hero__mockup-pipeline {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.hero__mockup-bar {
+    height: 20px;
+    border-radius: 6px;
+    opacity: 0.8;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero__mockup-bar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shimmer 2s infinite;
+    background-size: 200% 100%;
+}
+
+/* ---- Trust Section ---- */
+.hero__trust {
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.hero__trust-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--text-tertiary);
+    margin-bottom: 20px;
+}
+
+.hero__trust-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.hero__trust-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.hero__trust-logo:hover {
+    opacity: 0.8;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+    .hero {
+        padding: 100px 0 40px;
+    }
+
+    .hero__ctas {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .hero__ctas .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero__mockup-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero__trust-logos {
+        gap: 24px;
+    }
+
+    .hero__mockup-window {
+        transform: rotateX(2deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero__trust-logos {
+        gap: 16px;
+    }
+
+    .hero__trust-logo {
+        font-size: 14px;
+    }
+}

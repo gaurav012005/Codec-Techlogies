@@ -1,0 +1,418 @@
+/* ============================================
+   Analytics Dashboard — Feature 12
+   ============================================ */
+
+.analytics-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+/* ── Stat Cards ───────────────────────────── */
+.analytics-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-4);
+}
+
+.analytics-stat {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.analytics-stat:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-default);
+    box-shadow: var(--shadow-md);
+}
+
+.analytics-stat::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.analytics-stat.purple::before {
+    background: linear-gradient(90deg, #6366f1, #818cf8);
+}
+
+.analytics-stat.green::before {
+    background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.analytics-stat.amber::before {
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.analytics-stat.rose::before {
+    background: linear-gradient(90deg, #f43f5e, #fb7185);
+}
+
+.analytics-stat.cyan::before {
+    background: linear-gradient(90deg, #06b6d4, #22d3ee);
+}
+
+.analytics-stat.blue::before {
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+}
+
+.analytics-stat-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 14px;
+}
+
+.analytics-stat.purple .analytics-stat-icon {
+    background: rgba(99, 102, 241, 0.12);
+    color: #818cf8;
+}
+
+.analytics-stat.green .analytics-stat-icon {
+    background: rgba(16, 185, 129, 0.12);
+    color: #34d399;
+}
+
+.analytics-stat.amber .analytics-stat-icon {
+    background: rgba(245, 158, 11, 0.12);
+    color: #fbbf24;
+}
+
+.analytics-stat.rose .analytics-stat-icon {
+    background: rgba(244, 63, 94, 0.12);
+    color: #fb7185;
+}
+
+.analytics-stat.cyan .analytics-stat-icon {
+    background: rgba(6, 182, 212, 0.12);
+    color: #22d3ee;
+}
+
+.analytics-stat.blue .analytics-stat-icon {
+    background: rgba(59, 130, 246, 0.12);
+    color: #60a5fa;
+}
+
+.analytics-stat-value {
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.analytics-stat-label {
+    font-size: var(--font-xs);
+    color: var(--text-tertiary);
+    font-weight: 500;
+}
+
+/* ── Chart Grid ───────────────────────────── */
+.analytics-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+}
+
+@media (max-width: 900px) {
+    .analytics-charts {
+        grid-template-columns: 1fr;
+    }
+}
+
+.analytics-chart-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.analytics-chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.analytics-chart-title {
+    font-size: var(--font-base);
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.analytics-chart-body {
+    padding: 20px 16px;
+    height: 300px;
+}
+
+/* ── Exam Selector ───────────────────────── */
+.analytics-exam-selector {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.analytics-exam-selector select {
+    min-width: 260px;
+    padding: 8px 14px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: var(--font-sm);
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.analytics-exam-selector select:focus {
+    border-color: var(--primary-400);
+}
+
+/* ── Toppers Table ───────────────────────── */
+.analytics-toppers {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.analytics-toppers-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.analytics-toppers-title {
+    font-size: var(--font-base);
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toppers-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.toppers-table th {
+    text-align: left;
+    padding: 12px 20px;
+    font-size: var(--font-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-tertiary);
+    background: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.toppers-table td {
+    padding: 14px 20px;
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.toppers-table tr:last-child td {
+    border-bottom: none;
+}
+
+.toppers-table tr:hover td {
+    background: rgba(99, 102, 241, 0.03);
+}
+
+.rank-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-weight: 800;
+    font-size: 0.8rem;
+}
+
+.rank-badge.gold {
+    background: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+}
+
+.rank-badge.silver {
+    background: rgba(148, 163, 184, 0.15);
+    color: #94a3b8;
+}
+
+.rank-badge.bronze {
+    background: rgba(180, 83, 9, 0.15);
+    color: #d97706;
+}
+
+.rank-badge.default {
+    background: var(--bg-tertiary);
+    color: var(--text-tertiary);
+}
+
+/* ── Question Accuracy Bars ────────────── */
+.accuracy-bar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-height: 280px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.accuracy-bar-container::-webkit-scrollbar {
+    width: 4px;
+}
+
+.accuracy-bar-container::-webkit-scrollbar-thumb {
+    background: var(--border-default);
+    border-radius: 4px;
+}
+
+.accuracy-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.accuracy-item-label {
+    font-size: var(--font-xs);
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accuracy-item-bar {
+    height: 8px;
+    background: var(--bg-tertiary);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.accuracy-item-fill {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accuracy-item-fill.high {
+    background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.accuracy-item-fill.medium {
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.accuracy-item-fill.low {
+    background: linear-gradient(90deg, #f43f5e, #fb7185);
+}
+
+/* ── Full Width Card ────────────────────── */
+.analytics-full-width {
+    grid-column: 1 / -1;
+}
+
+/* ── Tab Switcher ───────────────────────── */
+.analytics-tab-bar {
+    display: flex;
+    gap: 4px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    padding: 3px;
+    width: fit-content;
+}
+
+.analytics-tab {
+    padding: 8px 20px;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-sm);
+    font-weight: 600;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    transition: all 0.2s;
+}
+
+.analytics-tab:hover {
+    color: var(--text-secondary);
+}
+
+.analytics-tab.active {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ── Empty State ───────────────────────── */
+.analytics-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    color: var(--text-tertiary);
+    gap: 12px;
+}
+
+.analytics-empty-icon {
+    font-size: 3rem;
+    opacity: 0.5;
+}
+
+.analytics-empty-text {
+    font-size: var(--font-sm);
+    font-weight: 500;
+}
+
+/* ── Difficulty Badge ─────────────────── */
+.diff-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.diff-badge.easy {
+    background: rgba(16, 185, 129, 0.12);
+    color: #10b981;
+}
+
+.diff-badge.medium {
+    background: rgba(245, 158, 11, 0.12);
+    color: #f59e0b;
+}
+
+.diff-badge.hard {
+    background: rgba(244, 63, 94, 0.12);
+    color: #f43f5e;
+}

@@ -1,0 +1,373 @@
+/* ============================================
+   Plagiarism Dashboard Styles — Feature 13
+   ============================================ */
+
+.plagiarism-page {
+    padding: 0;
+}
+
+/* ── Controls ────────────────────────── */
+
+.plag-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.plag-controls-left {
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.plag-threshold-value {
+    font-weight: 800;
+    font-size: var(--font-sm);
+    color: var(--primary-400);
+    min-width: 36px;
+    text-align: center;
+}
+
+/* ── Summary Cards ───────────────────── */
+
+.plag-summary {
+    margin-bottom: 24px;
+}
+
+.plag-summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.plag-stat-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    text-align: center;
+}
+
+.plag-stat-card.danger {
+    border-color: rgba(244, 63, 94, 0.2);
+    background: rgba(244, 63, 94, 0.04);
+}
+
+.plag-stat-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+}
+
+.plag-stat-card.danger .plag-stat-value {
+    color: #f43f5e;
+}
+
+.plag-stat-label {
+    font-size: 0.72rem;
+    color: var(--text-tertiary);
+    font-weight: 600;
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* ── Filter Bar ──────────────────────── */
+
+.plag-filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+}
+
+.plag-filter-btn {
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.plag-filter-btn:hover {
+    background: var(--bg-tertiary);
+}
+
+.plag-filter-btn.active {
+    background: var(--primary-500);
+    color: white;
+    border-color: var(--primary-500);
+}
+
+/* ── Flag Card ───────────────────────── */
+
+.plag-flags-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.plag-flag-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s;
+}
+
+.plag-flag-card:hover {
+    border-color: var(--border-default);
+    box-shadow: var(--shadow-md);
+}
+
+.plag-flag-card.pending {
+    border-left: 3px solid #f59e0b;
+}
+
+.plag-flag-card.cleared {
+    border-left: 3px solid #10b981;
+}
+
+.plag-flag-card.confirmed-cheating {
+    border-left: 3px solid #ef4444;
+}
+
+.plag-flag-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.plag-flag-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.plag-severity-badge {
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.plag-verdict-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+}
+
+.plag-verdict-tag.pending {
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+}
+
+.plag-verdict-tag.cleared {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.plag-verdict-tag.confirmed-cheating {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+/* ── Students Row ────────────────────── */
+
+.plag-students-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 12px 0;
+}
+
+.plag-student {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.plag-student-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.78rem;
+}
+
+.plag-student-name {
+    font-weight: 700;
+    font-size: var(--font-sm);
+    color: var(--text-primary);
+}
+
+.plag-vs {
+    font-weight: 900;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-tertiary);
+}
+
+.plag-question-text {
+    font-size: var(--font-xs);
+    color: var(--text-secondary);
+    line-height: 1.5;
+    padding: 10px 14px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+    margin-bottom: 12px;
+}
+
+/* ── Similarity Scores ───────────────── */
+
+.plag-scores {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.plag-score-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.plag-score-label {
+    font-size: 0.72rem;
+    color: var(--text-tertiary);
+    font-weight: 600;
+    min-width: 120px;
+}
+
+.plag-score-bar {
+    flex: 1;
+    height: 8px;
+    background: var(--bg-tertiary);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.plag-score-fill {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.plag-score-value {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    min-width: 48px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ── Diff Panel ──────────────────────── */
+
+.plag-diff-container {
+    overflow: hidden;
+    margin-top: 16px;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 16px;
+}
+
+.plag-diff-panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.plag-diff-panel {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.plag-diff-panel-header {
+    padding: 8px 14px;
+    background: var(--bg-tertiary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.plag-diff-text {
+    padding: 14px;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+}
+
+.plag-match {
+    background: rgba(244, 63, 94, 0.15);
+    color: #f43f5e;
+    border-radius: 3px;
+    padding: 1px 2px;
+    font-weight: 600;
+}
+
+/* ── Verdict Actions ─────────────────── */
+
+.plag-verdict-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+    justify-content: center;
+}
+
+.plag-admin-note {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(99, 102, 241, 0.06);
+    border-radius: var(--radius-sm);
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    border-left: 3px solid var(--primary-400);
+}
+
+/* ── Empty State ─────────────────────── */
+
+.plag-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-tertiary);
+}
+
+.plag-empty h3 {
+    margin: 12px 0 4px;
+    color: var(--text-secondary);
+    font-weight: 700;
+}
+
+.plag-empty p {
+    font-size: var(--font-sm);
+}

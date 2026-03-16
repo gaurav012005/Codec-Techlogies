@@ -1,0 +1,411 @@
+/* ============================================
+   Candidate Detail Page
+   ============================================ */
+.cd-page {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Header */
+.cd-header {
+    padding: 28px;
+}
+
+.cd-header__main {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-top: 16px;
+}
+
+.cd-header__avatar {
+    width: 72px;
+    height: 72px;
+    min-width: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6c5ce7, #00cec9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+}
+
+.cd-header__info {
+    flex: 1;
+}
+
+.cd-header__info h2 {
+    margin-bottom: 4px;
+}
+
+.cd-header__headline {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.cd-header__meta {
+    display: flex;
+    gap: 18px;
+    font-size: 13px;
+    color: var(--text-tertiary);
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.cd-header__tags {
+    display: flex;
+    gap: 8px;
+}
+
+.cd-tag {
+    padding: 4px 12px;
+    background: rgba(108, 92, 231, 0.12);
+    border: 1px solid rgba(108, 92, 231, 0.2);
+    border-radius: var(--radius-full);
+    font-size: 12px;
+    color: var(--primary-light);
+    font-weight: 500;
+}
+
+/* Score */
+.cd-header__score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.cd-score-big {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.cd-score-big svg {
+    width: 100%;
+    height: 100%;
+}
+
+.cd-score-big__inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cd-score-big__num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.cd-score-big__label {
+    font-size: 10px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.5px;
+}
+
+.cd-header__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Tabs */
+.cd-tabs {
+    display: flex;
+    gap: 4px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.cd-tab {
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cd-tab:hover {
+    color: var(--text-secondary);
+}
+
+.cd-tab--active {
+    color: var(--primary-light);
+    border-color: var(--primary);
+}
+
+/* Content */
+.cd-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 24px;
+}
+
+.cd-content__main,
+.cd-content__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cd-section {
+    padding: 24px;
+}
+
+.cd-section h4 {
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+/* Timeline */
+.cd-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.cd-timeline__item {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-subtle);
+    position: relative;
+}
+
+.cd-timeline__item:last-child {
+    border-bottom: none;
+}
+
+.cd-timeline__dot {
+    width: 10px;
+    height: 10px;
+    min-width: 10px;
+    border-radius: 50%;
+    margin-top: 6px;
+}
+
+.cd-timeline__title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.cd-timeline__company {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+.cd-timeline__date {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    margin-top: 4px;
+}
+
+.cd-timeline__desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-top: 8px;
+}
+
+/* Education */
+.cd-edu-item {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.cd-edu-item:last-child {
+    border-bottom: none;
+}
+
+.cd-edu-item__degree {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.cd-edu-item__school {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    margin-top: 4px;
+}
+
+/* Skills */
+.cd-skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.cd-skill-bar__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 13px;
+}
+
+.cd-skill-bar__top span:first-child {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.cd-skill-bar__level {
+    color: var(--text-tertiary);
+    text-transform: capitalize;
+    font-size: 11px;
+}
+
+.cd-skill-bar__bg {
+    height: 5px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.cd-skill-bar__fill {
+    height: 100%;
+    background: var(--primary);
+    border-radius: 3px;
+    transition: width 0.6s ease;
+}
+
+/* Links */
+.cd-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cd-link {
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+}
+
+.cd-link:hover {
+    color: var(--primary-light);
+}
+
+/* Applied Jobs */
+.cd-applied-job {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 13px;
+}
+
+.cd-applied-job:last-child {
+    border-bottom: none;
+}
+
+.cd-applied-job__title {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.cd-applied-job__stage {
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+/* AI Analysis */
+.cd-ai-meters {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cd-ai-meter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cd-ai-meter__label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    min-width: 120px;
+}
+
+.cd-ai-meter__bar-bg {
+    flex: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.cd-ai-meter__bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.8s ease;
+}
+
+.cd-ai-meter__val {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    min-width: 45px;
+    text-align: right;
+}
+
+.cd-ai-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cd-ai-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.cd-ai-list li span {
+    font-weight: 700;
+    min-width: 16px;
+}
+
+@media (max-width: 1024px) {
+    .cd-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .cd-header__main {
+        flex-direction: column;
+    }
+
+    .cd-header__score {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .cd-header__actions {
+        flex-direction: row;
+    }
+}

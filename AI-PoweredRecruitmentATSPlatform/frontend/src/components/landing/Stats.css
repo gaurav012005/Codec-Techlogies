@@ -1,0 +1,52 @@
+.stats {
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.stats__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 32px 16px;
+    border-radius: var(--radius-lg);
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.stat-item__value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(36px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--stat-color, #6c5ce7);
+    line-height: 1;
+    margin-bottom: 8px;
+    text-shadow: 0 0 30px var(--stat-color, rgba(108, 92, 231, 0.3));
+}
+
+.stat-item__label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--text-tertiary);
+}
+
+@media (max-width: 768px) {
+    .stats__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

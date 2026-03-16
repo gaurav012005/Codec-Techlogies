@@ -1,0 +1,581 @@
+/* ============================================
+   Interviews Page
+   ============================================ */
+.intv-page {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Header */
+.intv-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.intv-header__actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.intv-view-toggle {
+    display: flex;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.ivt-btn {
+    padding: 8px 16px;
+    background: none;
+    border: none;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.ivt-btn--active {
+    background: rgba(108, 92, 231, 0.15);
+    color: var(--primary-light);
+}
+
+/* Stats */
+.intv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.intv-stat-card {
+    padding: 18px 20px;
+    background: rgba(26, 26, 46, 0.4);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.intv-stat__num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.intv-stat__label {
+    font-size: 13px;
+    color: var(--text-tertiary);
+}
+
+/* Tabs */
+.intv-tabs {
+    display: flex;
+    gap: 4px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.intv-tab {
+    padding: 10px 18px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.intv-tab:hover {
+    color: var(--text-secondary);
+}
+
+.intv-tab--active {
+    color: var(--primary-light);
+    border-color: var(--primary);
+}
+
+/* List */
+.intv-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.intv-day-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.intv-day-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+
+.intv-day-header__date {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.intv-day-header__count {
+    font-size: 12px;
+    color: var(--text-tertiary);
+}
+
+/* Interview Card */
+.intv-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.intv-card:hover {
+    border-color: rgba(108, 92, 231, 0.3);
+}
+
+.intv-card__time-col {
+    min-width: 70px;
+    text-align: center;
+}
+
+.intv-card__time {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: block;
+}
+
+.intv-card__duration {
+    font-size: 11px;
+    color: var(--text-tertiary);
+}
+
+.intv-card__type {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+    min-width: 100px;
+    justify-content: center;
+}
+
+.intv-card__candidate {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+}
+
+.intv-card__avatar {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.4), rgba(0, 206, 201, 0.4));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+}
+
+.intv-card__name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.intv-card__headline {
+    font-size: 12px;
+    color: var(--text-tertiary);
+}
+
+.intv-card__job {
+    min-width: 150px;
+}
+
+.intv-card__job-title {
+    font-size: 13px;
+    color: var(--text-secondary);
+    display: block;
+}
+
+.intv-card__dept {
+    font-size: 11px;
+    color: var(--text-tertiary);
+}
+
+.intv-card__interviewers {
+    display: flex;
+    gap: -4px;
+    min-width: 80px;
+}
+
+.intv-card__interviewer-chip {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(108, 92, 231, 0.15);
+    border: 2px solid var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--primary-light);
+    margin-left: -6px;
+}
+
+.intv-card__interviewer-chip:first-child {
+    margin-left: 0;
+}
+
+.intv-card__interviewer-more {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-tertiary);
+}
+
+.intv-card__status {
+    min-width: 100px;
+    text-align: center;
+}
+
+.intv-status-badge {
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.intv-card__actions {
+    min-width: 60px;
+    text-align: right;
+}
+
+.intv-empty {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+/* ---- Calendar ---- */
+.intv-calendar {
+    padding: 24px;
+}
+
+.intv-cal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.intv-cal-header h4 {
+    margin: 0;
+}
+
+.intv-cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+}
+
+.intv-cal-day-label {
+    padding: 10px 8px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.intv-cal-cell {
+    min-height: 100px;
+    padding: 8px;
+    background: rgba(15, 15, 30, 0.3);
+    border: 1px solid var(--border-subtle);
+    position: relative;
+}
+
+.intv-cal-cell--empty {
+    background: transparent;
+    border-color: transparent;
+}
+
+.intv-cal-cell--today {
+    border-color: rgba(108, 92, 231, 0.4);
+    background: rgba(108, 92, 231, 0.04);
+}
+
+.intv-cal-cell--has-events {
+    background: rgba(26, 26, 46, 0.5);
+}
+
+.intv-cal-cell__num {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.intv-cal-cell--today .intv-cal-cell__num {
+    background: var(--primary);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.intv-cal-cell__events {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.intv-cal-event {
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    cursor: pointer;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    transition: opacity 0.15s;
+}
+
+.intv-cal-event:hover {
+    opacity: 0.8;
+}
+
+.intv-cal-event__time {
+    font-weight: 600;
+}
+
+.intv-cal-event__name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text-secondary);
+}
+
+.intv-cal-more {
+    font-size: 10px;
+    color: var(--text-tertiary);
+    padding: 2px 4px;
+}
+
+/* ---- Modal ---- */
+.intv-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.intv-modal {
+    width: 100%;
+    max-width: 560px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 0;
+}
+
+.intv-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.intv-modal__header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.intv-modal__body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.intv-modal__row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.intv-modal__label {
+    min-width: 110px;
+    font-size: 13px;
+    color: var(--text-tertiary);
+    font-weight: 500;
+    padding-top: 2px;
+}
+
+.intv-modal__val {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.intv-modal__interviewers {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.intv-modal__interviewer {
+    font-size: 13px;
+}
+
+.intv-modal__footer {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    padding: 16px 24px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+/* Form */
+.intv-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.intv-form-group label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.intv-form-group .input {
+    height: 42px;
+    font-size: 14px;
+}
+
+.intv-form-group textarea.input {
+    height: auto;
+    min-height: 80px;
+    resize: vertical;
+}
+
+.intv-form-group select.input {
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%236c6c7e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+}
+
+.intv-form-group select.input option {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+}
+
+.intv-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+.intv-type-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.intv-type-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 12px;
+    background: rgba(26, 26, 46, 0.5);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: all 0.15s;
+}
+
+.intv-type-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary-light);
+}
+
+.intv-type-btn span:first-child {
+    font-size: 20px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+
+    .intv-card__job,
+    .intv-card__interviewers {
+        display: none;
+    }
+
+    .intv-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .intv-header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .intv-card__type {
+        display: none;
+    }
+
+    .intv-cal-grid {
+        font-size: 10px;
+    }
+
+    .intv-cal-cell {
+        min-height: 60px;
+        padding: 4px;
+    }
+
+    .intv-form-row {
+        grid-template-columns: 1fr;
+    }
+}

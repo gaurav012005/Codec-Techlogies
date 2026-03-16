@@ -1,0 +1,160 @@
+/* ============================================
+   Job Form Page — Create / Edit
+   ============================================ */
+
+.job-form-page__header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.job-form-page__header h2 {
+    margin: 0;
+}
+
+.job-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 860px;
+}
+
+.jf-section {
+    padding: 28px;
+}
+
+.jf-section__title {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.jf-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.jf-row:last-child {
+    margin-bottom: 0;
+}
+
+.jf-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.jf-group--full {
+    grid-column: 1 / -1;
+}
+
+.jf-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.jf-input {
+    height: 44px;
+    font-size: 14px;
+}
+
+.jf-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%236c6c7e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+}
+
+.jf-select option {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+}
+
+.jf-textarea {
+    height: auto;
+    min-height: 120px;
+    padding: 12px 14px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+/* ---- Dynamic List Fields ---- */
+.jf-list-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.jf-list-row .input {
+    flex: 1;
+}
+
+.jf-list-remove {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(225, 112, 85, 0.1);
+    border: 1px solid rgba(225, 112, 85, 0.2);
+    border-radius: var(--radius-sm);
+    color: var(--danger);
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.15s ease;
+}
+
+.jf-list-remove:hover {
+    background: rgba(225, 112, 85, 0.2);
+}
+
+.jf-list-add {
+    background: none;
+    border: 1px dashed var(--border-medium);
+    border-radius: var(--radius-sm);
+    color: var(--text-tertiary);
+    padding: 8px 16px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    width: 100%;
+}
+
+.jf-list-add:hover {
+    border-color: var(--primary);
+    color: var(--primary-light);
+    background: rgba(108, 92, 231, 0.05);
+}
+
+/* ---- Actions ---- */
+.jf-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 20px 0;
+}
+
+@media (max-width: 600px) {
+    .jf-row {
+        grid-template-columns: 1fr;
+    }
+
+    .jf-actions {
+        flex-direction: column;
+    }
+
+    .jf-actions .btn {
+        width: 100%;
+    }
+}

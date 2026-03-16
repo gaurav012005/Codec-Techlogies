@@ -1,0 +1,244 @@
+/* ============================================ Candidate Portal ============================================ */
+.portal-page {
+    min-height: 100vh;
+    background: var(--bg-primary);
+}
+
+.portal-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.portal-nav__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.portal-nav__links {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.portal-nav__link {
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: none;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.15s;
+    text-decoration: none;
+}
+
+.portal-nav__link:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.portal-nav__link--active {
+    color: var(--primary-light);
+    background: rgba(108, 92, 231, 0.12);
+}
+
+.portal-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px;
+}
+
+.portal-welcome {
+    margin-bottom: 32px;
+}
+
+.portal-welcome h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.portal-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.portal-stat {
+    padding: 20px;
+    background: rgba(26, 26, 46, 0.4);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.portal-stat__num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.portal-stat__label {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    margin-top: 4px;
+}
+
+.portal-apps {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.portal-apps__title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.portal-app {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    transition: border-color 0.2s;
+    cursor: pointer;
+}
+
+.portal-app:hover {
+    border-color: rgba(108, 92, 231, 0.3);
+}
+
+.portal-app__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.portal-app__info {
+    flex: 1;
+    min-width: 0;
+}
+
+.portal-app__title {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.portal-app__company {
+    font-size: 12px;
+    color: var(--text-tertiary);
+}
+
+.portal-app__date {
+    font-size: 12px;
+    color: var(--text-tertiary);
+}
+
+.portal-app__status {
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.portal-app__stage {
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+}
+
+.portal-app__stage-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.portal-app__stage-bar {
+    height: 4px;
+    flex: 1;
+    border-radius: 2px;
+}
+
+/* Job Board */
+.portal-jobs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+}
+
+.portal-job {
+    padding: 20px;
+    transition: border-color 0.2s;
+    cursor: pointer;
+}
+
+.portal-job:hover {
+    border-color: rgba(108, 92, 231, 0.3);
+}
+
+.portal-job__title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.portal-job__meta {
+    display: flex;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    margin-bottom: 10px;
+}
+
+.portal-job__tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+}
+
+.portal-job__tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-tertiary);
+}
+
+.portal-job__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+@media (max-width: 768px) {
+    .portal-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .portal-jobs {
+        grid-template-columns: 1fr;
+    }
+
+    .portal-nav {
+        padding: 12px 16px;
+    }
+}

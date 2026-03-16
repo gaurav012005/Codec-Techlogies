@@ -1,0 +1,350 @@
+/* ============================================
+   Pipeline / Kanban Board
+   ============================================ */
+
+.pipeline-page {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: calc(100vh - 100px);
+}
+
+/* ---- Header ---- */
+.pipeline-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.pipeline-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pipeline-job-select {
+    height: 40px;
+    padding: 0 36px 0 14px;
+    background: rgba(26, 26, 46, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%236c6c7e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    min-width: 220px;
+}
+
+.pipeline-job-select option {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+}
+
+/* ---- Stage Stats ---- */
+.pipeline-stats {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.pipeline-stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: rgba(26, 26, 46, 0.4);
+    border-left: 3px solid;
+    border-radius: var(--radius-sm);
+}
+
+.pipeline-stat__icon {
+    font-size: 18px;
+}
+
+.pipeline-stat__count {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.pipeline-stat__label {
+    font-size: 12px;
+    color: var(--text-tertiary);
+}
+
+/* ---- Kanban Board ---- */
+.kanban-board {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+    flex: 1;
+    overflow-x: auto;
+    min-height: 0;
+}
+
+/* ---- Column ---- */
+.kanban-column {
+    display: flex;
+    flex-direction: column;
+    background: rgba(15, 15, 30, 0.5);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    min-width: 240px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.kanban-column--drag-over {
+    border-color: rgba(108, 92, 231, 0.5);
+    background: rgba(108, 92, 231, 0.04);
+    box-shadow: inset 0 0 30px rgba(108, 92, 231, 0.06);
+}
+
+/* ---- Column Header ---- */
+.kanban-column__header {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-subtle);
+    flex-shrink: 0;
+}
+
+.kanban-column__title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.kanban-column__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.kanban-column__count {
+    margin-left: auto;
+    padding: 2px 8px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-tertiary);
+}
+
+/* ---- Drop Zone ---- */
+.kanban-drop-zone {
+    margin: 8px 10px;
+    padding: 14px;
+    border: 2px dashed;
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    background: rgba(108, 92, 231, 0.04);
+    animation: dropPulse 1s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes dropPulse {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* ---- Cards Container ---- */
+.kanban-column__cards {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.kanban-column__cards::-webkit-scrollbar {
+    width: 4px;
+}
+
+.kanban-column__cards::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 2px;
+}
+
+/* ---- Kanban Card ---- */
+.kanban-card {
+    position: relative;
+    padding: 14px;
+    background: rgba(26, 26, 46, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    cursor: grab;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.kanban-card:hover {
+    border-color: rgba(108, 92, 231, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.kanban-card:active {
+    cursor: grabbing;
+}
+
+.kanban-card.dragging {
+    opacity: 0.4;
+    transform: rotate(2deg) scale(0.95);
+}
+
+/* Card Top */
+.kanban-card__top {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.kanban-card__avatar {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+}
+
+.kanban-card__info {
+    min-width: 0;
+}
+
+.kanban-card__name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.kanban-card__headline {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Card Skills */
+.kanban-card__skills {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.kanban-card__skill {
+    padding: 2px 8px;
+    background: rgba(108, 92, 231, 0.1);
+    border-radius: var(--radius-full);
+    font-size: 10px;
+    color: var(--primary-light);
+    font-weight: 500;
+}
+
+/* Card Bottom */
+.kanban-card__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.kanban-card__score {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.kanban-card__score-bar {
+    width: 50px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.kanban-card__score-bar>div {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.kanban-card__source {
+    font-size: 10px;
+    color: var(--text-tertiary);
+}
+
+/* Drag Handle */
+.kanban-card__drag-handle {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    font-size: 14px;
+    color: var(--text-tertiary);
+    opacity: 0;
+    transition: opacity 0.2s;
+    cursor: grab;
+}
+
+.kanban-card:hover .kanban-card__drag-handle {
+    opacity: 0.6;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1200px) {
+    .pipeline-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .kanban-board {
+        grid-template-columns: repeat(3, minmax(240px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .pipeline-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .kanban-board {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+    }
+
+    .pipeline-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+}

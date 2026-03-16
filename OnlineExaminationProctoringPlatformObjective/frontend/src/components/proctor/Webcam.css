@@ -1,0 +1,342 @@
+/* ============================================
+   WebcamGate + LiveWebcamFeed styles — Feature 8
+   ============================================ */
+
+/* ── Permission Gate Overlay ─────────────────── */
+.webcam-gate {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 8, 22, 0.97);
+    backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 24px;
+}
+
+.webcam-gate-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    padding: 48px 40px;
+    max-width: 540px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    animation: gateSlideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes gateSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(32px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ── Webcam preview box ───────────────────────── */
+.webcam-preview-box {
+    width: 200px;
+    height: 150px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin: 24px auto;
+    border: 2px solid var(--glass-border);
+    background: var(--bg-secondary);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.webcam-preview-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1);
+    /* mirror */
+}
+
+.webcam-preview-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.webcam-preview-icon {
+    font-size: 2.5rem;
+    color: var(--primary-400);
+}
+
+.webcam-status-dot {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 8px #10b981;
+    animation: livePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
+}
+
+/* ── Gate text ────────────────────────────────── */
+.webcam-gate-icon {
+    font-size: 3.5rem;
+    margin-bottom: 16px;
+}
+
+.webcam-gate-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.webcam-gate-subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.webcam-requirements {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+    text-align: left;
+}
+
+.webcam-req-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    padding: 10px 14px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--glass-border);
+}
+
+.webcam-req-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.webcam-error {
+    background: rgba(244, 63, 94, 0.1);
+    border: 1px solid rgba(244, 63, 94, 0.3);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    color: #f43f5e;
+    font-size: 0.875rem;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.webcam-spinner-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin: 20px 0;
+}
+
+/* ── Live Webcam Feed (corner overlay) ────────── */
+.webcam-feed-corner {
+    position: fixed;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.webcam-feed-corner.position-top-right {
+    top: 72px;
+    /* below exam header */
+    right: 16px;
+}
+
+.webcam-feed-corner.position-top-left {
+    top: 72px;
+    left: 16px;
+}
+
+.webcam-feed-corner.position-bottom-right {
+    bottom: 16px;
+    right: 16px;
+}
+
+.webcam-feed-inner {
+    position: relative;
+    width: 180px;
+    height: 135px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 2px solid rgba(16, 185, 129, 0.5);
+    box-shadow:
+        0 0 0 1px rgba(16, 185, 129, 0.2),
+        0 8px 32px rgba(0, 0, 0, 0.5);
+    background: #000;
+    cursor: move;
+}
+
+.webcam-feed-inner:hover .webcam-feed-controls {
+    opacity: 1;
+}
+
+.webcam-feed-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1);
+}
+
+.webcam-feed-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 20px 8px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.webcam-live-badge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.webcam-live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #f43f5e;
+    box-shadow: 0 0 6px #f43f5e;
+    animation: livePulse 1s ease-in-out infinite;
+}
+
+.webcam-proctored-badge {
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+}
+
+.webcam-feed-controls {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    display: flex;
+    gap: 4px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.webcam-ctrl-btn {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.webcam-ctrl-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* Feed error state */
+.webcam-feed-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 135px;
+    border-radius: var(--radius-lg);
+    background: rgba(244, 63, 94, 0.1);
+    border: 2px solid rgba(244, 63, 94, 0.3);
+    font-size: 0.7rem;
+    color: #f43f5e;
+    gap: 6px;
+    text-align: center;
+    padding: 12px;
+}
+
+/* ── Proctor warning toast ─────────────────────── */
+.proctor-warning {
+    position: fixed;
+    top: 72px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+    background: rgba(244, 63, 94, 0.15);
+    border: 1px solid rgba(244, 63, 94, 0.5);
+    border-radius: var(--radius-md);
+    padding: 10px 24px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #f43f5e;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(8px);
+    animation: warningSlide 0.3s ease, warningFade 0.5s ease 2.5s forwards;
+    pointer-events: none;
+}
+
+@keyframes warningSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes warningFade {
+    to {
+        opacity: 0;
+    }
+}

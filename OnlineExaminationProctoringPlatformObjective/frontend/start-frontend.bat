@@ -1,0 +1,3 @@
+@echo off
+echo Starting React Vite Frontend...
+node node_modules\vite\bin\vite.js

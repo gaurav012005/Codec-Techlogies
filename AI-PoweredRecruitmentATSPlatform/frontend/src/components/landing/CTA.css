@@ -1,0 +1,53 @@
+.cta-section__inner {
+    position: relative;
+    padding: 80px 48px;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    text-align: center;
+}
+
+.cta-section__bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.12), rgba(0, 206, 201, 0.08));
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+}
+
+.cta-section__bg::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 70%, rgba(108, 92, 231, 0.1), transparent 50%),
+        radial-gradient(circle at 70% 30%, rgba(0, 206, 201, 0.08), transparent 50%);
+    animation: gradientShift 10s ease infinite;
+    background-size: 100% 100%;
+}
+
+.cta-section__content {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-section__content h2 {
+    margin-bottom: 16px;
+}
+
+.cta-section__desc {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+}
+
+.cta-section__btn {
+    animation: pulse-glow 3s infinite;
+}
+
+@media (max-width: 768px) {
+    .cta-section__inner {
+        padding: 48px 24px;
+    }
+}

@@ -1,0 +1,278 @@
+/* ============================================
+   Candidates Page
+   ============================================ */
+
+.cands-page__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.cands-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.cands-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cands-search span {
+    position: absolute;
+    left: 12px;
+    font-size: 14px;
+}
+
+.cands-search input {
+    width: 300px;
+    height: 40px;
+    padding: 0 14px 0 36px;
+    background: rgba(26, 26, 46, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: 13px;
+    outline: none;
+}
+
+.cands-search input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.cands-search input::placeholder {
+    color: var(--text-tertiary);
+}
+
+.cands-filters {
+    display: flex;
+    gap: 10px;
+}
+
+.cands-filter-select {
+    height: 40px;
+    padding: 0 32px 0 12px;
+    background: rgba(26, 26, 46, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: 13px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%236c6c7e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+.cands-filter-select option {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+}
+
+/* ---- Candidate List ---- */
+.cands-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cand-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 20px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cand-row:hover {
+    border-color: rgba(108, 92, 231, 0.3);
+}
+
+.cand-row__left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+    min-width: 0;
+}
+
+.cand-avatar {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.4), rgba(0, 206, 201, 0.4));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+}
+
+.cand-info {
+    min-width: 0;
+}
+
+.cand-info__name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.cand-info__headline {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cand-info__meta {
+    display: flex;
+    gap: 14px;
+    font-size: 12px;
+    color: var(--text-tertiary);
+}
+
+.cand-row__skills {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    min-width: 180px;
+}
+
+.cand-skill {
+    padding: 3px 10px;
+    background: rgba(108, 92, 231, 0.1);
+    border: 1px solid rgba(108, 92, 231, 0.15);
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    color: var(--primary-light);
+    font-weight: 500;
+}
+
+.cand-skill--more {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-subtle);
+    color: var(--text-tertiary);
+}
+
+.cand-row__stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 120px;
+}
+
+.cand-stage {
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.cand-job-title {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    text-align: center;
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ---- AI Score Ring ---- */
+.cand-row__score {
+    min-width: 56px;
+    display: flex;
+    justify-content: center;
+}
+
+.cand-score-ring {
+    position: relative;
+    width: 44px;
+    height: 44px;
+}
+
+.cand-score-ring svg {
+    width: 100%;
+    height: 100%;
+}
+
+.cand-score-val {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.cand-row__source {
+    min-width: 80px;
+    text-align: center;
+}
+
+.cand-source {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.cand-row__arrow {
+    color: var(--primary);
+    font-size: 16px;
+    transition: transform 0.2s;
+}
+
+.cand-row:hover .cand-row__arrow {
+    transform: translateX(4px);
+}
+
+.cands-empty {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+@media (max-width: 1024px) {
+
+    .cand-row__skills,
+    .cand-row__source {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .cands-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cands-search input {
+        width: 100%;
+    }
+
+    .cand-row__stage {
+        display: none;
+    }
+}
